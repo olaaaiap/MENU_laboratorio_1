@@ -32,7 +32,7 @@ if __name__ == "__main__":
     b = construir_B(n)
     end_time = time.perf_counter()
 
-    print(f"Tamaño A (bytes): {matrix.nbytes}")
+    print(f"\nTamaño A (bytes): {matrix.nbytes}")
     print(f"Tamaño b (bytes): {b.nbytes}")
     print(f"Tamaño A (MB): {matrix.nbytes / (1024 * 1024)}")
     print(f"Tamaño b (MB): {b.nbytes / (1024 * 1024)}")
@@ -51,4 +51,4 @@ if __name__ == "__main__":
     
     end_time_jacobi = time.perf_counter()
     duration_jacobi = end_time_jacobi - start_time_jacobi
-    print(f"Tiempo de ejecución Jacobi: {duration_jacobi} segundos")
+    print(f"\nTiempo de ejecución Jacobi: {duration_jacobi} segundos")
