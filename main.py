@@ -52,3 +52,18 @@ if __name__ == "__main__":
     end_time_jacobi = time.perf_counter()
     duration_jacobi = end_time_jacobi - start_time_jacobi
     print(f"Tiempo de ejecución Jacobi: {duration_jacobi} segundos")
+
+
+    #PARTE 3
+    n_values = [10,20,100,200,1000,2000,10000,20000]
+
+    for n in n_values:      
+        start_time = time.perf_counter()
+
+        matrix = construir_A(n)
+        b = construir_B(n)
+
+        np.linalg.solve(matrix, b)
+        end_time = time.perf_counter()
+        duration = end_time - start_time
+        print(duration)
