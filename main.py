@@ -25,6 +25,8 @@ def construir_B(n):
 
 
 if __name__ == "__main__":
+
+    #PARTE 1
     n=50000
     
     start_time = time.perf_counter()
@@ -43,7 +45,7 @@ if __name__ == "__main__":
     print(duration)
     print(matrix)
     
-
+    #PARTE 2
 
     start_time_jacobi = time.perf_counter()
     x0 = np.zeros(len(b))
