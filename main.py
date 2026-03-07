@@ -14,7 +14,13 @@ def construir_A(n):
     return A
 
 
+def construir_B(n):
+    array_b = np.full(n, 1)
+    return array_b
+
+
 if __name__ == "__main__":
-    print("Hello, World!")
-    matrix = construir_A(4)
+    n=100
+    matrix = construir_A(n)
+    b = construir_B(n)
     print(matrix)
