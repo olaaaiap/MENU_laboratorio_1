@@ -13,7 +13,7 @@ def jacobi_cíclico(n, tol = 1.e-6, maxit=100, verbose=True):
         xk[n-1] = 1/4*(1+xprev[0]+xprev[n-2])
         error = np.linalg.norm(xk-xprev, np.inf)
         if verbose:
-            print(f"Iteración {k}: x = {xk}, error = {error}")
+            print(f"Iteración {k}: x = {xk[:5]}, error = {error}")
             
         if error < tol:
             break
@@ -21,21 +21,24 @@ def jacobi_cíclico(n, tol = 1.e-6, maxit=100, verbose=True):
 
 
 if __name__ == "__main__":
-    n=50000
-    
-    start_time_jacobi = time.perf_counter()
-    xk = jacobi_cíclico(n)
-    end_time_jacobi = time.perf_counter()
-    duration_jacobi = end_time_jacobi - start_time_jacobi
-    print(f"\nTiempo de ejecución Jacobi cíclico: {duration_jacobi} segundos")
+    n_values = [10,20,100,200,1000,2000,10000,20000,50000]
 
-    print(f"\nTamaño xk: {xk.nbytes}")
-    print(f"Tamaño total: {xk.nbytes * 2}")
+    for n in n_values:
+        start_time_jacobi = time.perf_counter()
+        xk = jacobi_cíclico(n)
+        end_time_jacobi = time.perf_counter()
+        duration_jacobi = end_time_jacobi - start_time_jacobi
 
-    
-    print(f"Tamaño xk (MB): {xk.nbytes / (1024 * 1024)}")
-    print(f"Tamaño total (MB): {(xk.nbytes * 2) / (1024 * 1024)}")
+        print(f"\nCON N: {n}")
+        print(f"Tiempo de ejecución Jacobi cíclico: {duration_jacobi} segundos")
 
-    
-    print(f"Tamaño xk (GB): {xk.nbytes / (1024 * 1024 * 1024)}")
-    print(f"Tamaño total (GB): {(xk.nbytes * 2) / (1024 * 1024 * 1024)}")
+        print(f"\nTamaño xk: {xk.nbytes}")
+        print(f"Tamaño total: {xk.nbytes * 2}")
+
+        
+        print(f"Tamaño xk (MB): {xk.nbytes / (1024 * 1024)}")
+        print(f"Tamaño total (MB): {(xk.nbytes * 2) / (1024 * 1024)}")
+
+        
+        print(f"Tamaño xk (GB): {xk.nbytes / (1024 * 1024 * 1024)}")
+        print(f"Tamaño total (GB): {(xk.nbytes * 2) / (1024 * 1024 * 1024)}")
