@@ -1,5 +1,5 @@
 import numpy as np
-
+import time
 
 def construir_A(n):
     array_4 = np.full(n, 4)
@@ -20,7 +20,14 @@ def construir_B(n):
 
 
 if __name__ == "__main__":
-    n=100
+    n=50000
+    
+    start_time = time.perf_counter()
     matrix = construir_A(n)
     b = construir_B(n)
+    end_time = time.perf_counter()
+
+    duration = end_time - start_time
+    print(duration)
     print(matrix)
+    
