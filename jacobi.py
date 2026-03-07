@@ -25,10 +25,10 @@ def jacobi(A, b, x0,  tol = 1.e-6, maxit = 100, verbose = True):
     return xk
     
 
-A = np.array([[10, 1], [1,8]])
-b = np.array([23, 26])
-x0 = np.zeros(len(b))
-jacobi(A, b, x0)
+# A = np.array([[10, 1], [1,8]])
+# b = np.array([23, 26])
+# x0 = np.zeros(len(b))
+# jacobi(A, b, x0)
 
 
 
