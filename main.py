@@ -25,10 +25,9 @@ def construir_B(n):
 
 
 if __name__ == "__main__":
-
-    #PARTE 1
-    n=50000
-    
+     #PARTE 1
+    print("-----------------------------PARTE 1---------------------------")
+    n=10000
     start_time = time.perf_counter()
     matrix = construir_A(n)
     b = construir_B(n)
@@ -46,7 +45,7 @@ if __name__ == "__main__":
     print(matrix)
     
     #PARTE 2
-
+    print("-----------------------------PARTE 2---------------------------")
     start_time_jacobi = time.perf_counter()
     x0 = np.zeros(len(b))
     jacobi.jacobi(matrix, b, x0)
@@ -57,6 +56,7 @@ if __name__ == "__main__":
 
 
     #PARTE 3
+    print("-----------------------------PARTE 3---------------------------")
     n_values = [10,20,100,200,1000,2000,10000,20000]
 
     for n in n_values:      
@@ -65,7 +65,12 @@ if __name__ == "__main__":
         matrix = construir_A(n)
         b = construir_B(n)
 
-        np.linalg.solve(matrix, b)
+        res = np.linalg.solve(matrix, b)
+        ones= np.ones(len(res))
+        sol_exacta = 1/2 * ones
+        error = np.linalg.norm(res - sol_exacta, np.inf)
+    
         end_time = time.perf_counter()
-        duration = end_time - start_time
-        print(duration)
+        duration_linalg_solve = end_time - start_time
+        print(f"Tiempo de ejecución linalg_solve: {duration_linalg_solve} segundos")
+        print(f"Resultado: {res[:5]}, error: {error}")
