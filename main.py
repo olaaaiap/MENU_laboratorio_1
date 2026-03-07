@@ -1,6 +1,6 @@
 import numpy as np
 import time
-import sys
+import jacobi
 
 def construir_A(n):
     array_4 = np.full(n, 4)
@@ -12,6 +12,10 @@ def construir_A(n):
     diagonal_inferior = np.diag(array_1, k=-1)
 
     A = diagonal + diagonal_superior + diagonal_inferior
+    #poner valor -1 al ultimo elemento de la fila 1
+    A[0, -1] = -1
+    #poner valor -1 al primer elemento de la ultima fila
+    A[-1, 0] = -1
     return A
 
 
@@ -38,3 +42,13 @@ if __name__ == "__main__":
     duration = end_time - start_time
     print(duration)
     print(matrix)
+    
+
+
+    start_time_jacobi = time.perf_counter()
+    x0 = np.zeros(len(b))
+    jacobi.jacobi(matrix, b, x0)
+    
+    end_time_jacobi = time.perf_counter()
+    duration_jacobi = end_time_jacobi - start_time_jacobi
+    print(f"Tiempo de ejecución Jacobi: {duration_jacobi} segundos")
