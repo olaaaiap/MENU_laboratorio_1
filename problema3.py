@@ -37,3 +37,4 @@ if __name__ == "__main__":
         end_time = time.perf_counter()
         duration = end_time - start_time
         print(f"\nTiempo de ejecución scipy: {duration} segundos")
+        

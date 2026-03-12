@@ -29,8 +29,11 @@ if __name__ == "__main__":
         end_time_jacobi = time.perf_counter()
         duration_jacobi = end_time_jacobi - start_time_jacobi
 
-        print(f"\nCON N: {n}")
+        error_jacobi = np.linalg.norm(xk - 0.5*np.ones(len(xk)), np.inf)
+
+        print(f"\nCon n: {n}")
         print(f"Tiempo de ejecución Jacobi cíclico: {duration_jacobi} segundos")
+        print(f"Error Jacobi cíclico: {error_jacobi}")
 
         print(f"\nTamaño xk: {xk.nbytes}")
         print(f"Tamaño total: {xk.nbytes * 2}")
