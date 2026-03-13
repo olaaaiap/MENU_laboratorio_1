@@ -1,6 +1,5 @@
 import numpy as np
 import time
-import jacobi
 from scipy import sparse
 from scipy.sparse.linalg import spsolve
 
@@ -29,12 +28,14 @@ def resolverSistema(n):
 if __name__ == "__main__":
        #PARTE 3
     n_values = [10,20,100,200,1000,2000,10000,20000]
-
-    for n in n_values:      
+    #iterar sobre los valores de n...
+    for n in n_values:     
+        #calcular tiempo con la funcion resolverSistema()
         start_time = time.perf_counter()
-
         resolverSistema(n)
         end_time = time.perf_counter()
         duration = end_time - start_time
+
+        #imprimir la duración
         print(f"\nTiempo de ejecución scipy: {duration} segundos")
         
