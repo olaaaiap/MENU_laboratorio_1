@@ -29,7 +29,8 @@ if __name__ == "__main__":
        #PARTE 3
     n_values = [10,20,100,200,1000,2000,10000,20000]
     #iterar sobre los valores de n...
-    for n in n_values:     
+    for n in n_values:   
+        print(f"\nValor de n: {n}")  
         #calcular tiempo con la funcion resolverSistema()
         start_time = time.perf_counter()
         resolverSistema(n)

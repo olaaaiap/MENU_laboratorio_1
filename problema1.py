@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
         end_time = time.perf_counter()
         duration_linalg_solve = end_time - start_time
-
+        print(f"\nValor de n: {n}")
         #Imprimir el tiempo de ejecución de np.linalg.solve() y el error
         print(f"Tiempo de ejecución linalg_solve: {duration_linalg_solve} segundos")
         print(f"Resultado: {res[:5]}, error: {error}")
