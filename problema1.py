@@ -68,20 +68,25 @@ if __name__ == "__main__":
 
     #region "PARTE 2"
     print("\n-----------------------------PARTE 2---------------------------")
-    #Utilizar la función jacobi() para resolver el sistema
-    start_time_jacobi = time.perf_counter()
-    x0 = np.zeros(len(b))
-    x_jacobi = jacobi.jacobi(matrix, b, x0)
-    end_time_jacobi = time.perf_counter()
+    n_values = [10,20,100,200,1000,2000,10000,20000]
+    #iterar sobre los valores de n...
+    for n in n_values: 
+        #Utilizar la función jacobi() para resolver el sistema
+        start_time_jacobi = time.perf_counter()
+        matrix = construir_A(n)
+        b = construir_B(n)
+        x0 = np.zeros(len(b))
+        x_jacobi = jacobi.jacobi(matrix, b, x0)
+        end_time_jacobi = time.perf_counter()
 
-    #Imprimir el tiempo de ejecución de Jacobi
-    duration_jacobi = end_time_jacobi - start_time_jacobi
-    print(f"\nTiempo de ejecución Jacobi: {duration_jacobi} segundos")
+        print(f"\nValor de n: {n}")
+        #Imprimir el tiempo de ejecución de Jacobi
+        duration_jacobi = end_time_jacobi - start_time_jacobi
+        print(f"Tiempo de ejecución Jacobi: {duration_jacobi} segundos")
 
-    #Imprimir el error respecto a la solución exacta
-    error_jacobi = np.linalg.norm(x_jacobi - 0.5*np.ones(len(x_jacobi)), np.inf)
-    print(f"Resultado Jacobi: {x_jacobi[:5]}, error: {error_jacobi}")
-
+        #Imprimir el error respecto a la solución exacta
+        error_jacobi = np.linalg.norm(x_jacobi - 0.5*np.ones(len(x_jacobi)), np.inf)
+        print(f"Resultado Jacobi: {x_jacobi[:5]}, error: {error_jacobi}\n")
     #endregion
 
 

@@ -21,7 +21,7 @@ def jacobi(A, b, x0,  tol = 1.e-6, maxit = 100, verbose = True):
 
         error = np.linalg.norm(xk-xprev, np.inf)
         if verbose:
-            print(f"Iteración {k}: x = {xk}, error = {error}")
+            print(f"Iteración {k}: x = {xk[:5]}, error = {error}")
             
         if error < tol:
             break
