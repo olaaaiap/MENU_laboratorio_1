@@ -54,10 +54,10 @@ if __name__ == "__main__":
         print(f"\nValor de n: {n}")
         print(f"Tamaño A (bytes): {matrix.nbytes}")
         print(f"Tamaño b (bytes): {b.nbytes}")
-        print(f"Tamaño A (MB): {matrix.nbytes / (1024 * 1024)}")
-        print(f"Tamaño b (MB): {b.nbytes / (1024 * 1024)}")
-        print(f"Tamaño A (GB): {matrix.nbytes / (1024 * 1024 * 1024)}")
-        print(f"Tamaño b (GB): {b.nbytes / (1024 * 1024 * 1024)}")
+        print(f"Tamaño A (MiB): {matrix.nbytes / (1024 * 1024)}")
+        print(f"Tamaño b (MiB): {b.nbytes / (1024 * 1024)}")
+        print(f"Tamaño A (GiB): {matrix.nbytes / (1024 * 1024 * 1024)}")
+        print(f"Tamaño b (GiB): {b.nbytes / (1024 * 1024 * 1024)}")
 
         #Imprimir la duración de la construcción de A y b
         duration = end_time - start_time
